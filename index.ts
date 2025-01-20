@@ -8,16 +8,19 @@ import map from 'lodash/map';
 import reduce from 'lodash/reduce';
 import toNumber from 'lodash/toNumber';
 
-type StringValue = string | 'true' | 'false';
+type InputFunction = (value: any) => any;
 type InputPrimitive = StringValue | number | boolean | null | undefined;
 type InputObject = { [key: string]: InputValue };
 type InputArray = InputValue[];
-type InputValue = InputPrimitive | InputObject | InputArray;
+type InputValue = InputFunction | InputPrimitive | InputObject | InputArray;
 
+type OutputFunction = (value: any) => any;
 type OutputPrimitive = string | number | boolean | null | undefined;
 type OutputObject = { [key: string]: OutputValue };
 type OutputArray = OutputValue[];
-type OutputValue = OutputPrimitive | OutputObject | OutputArray;
+type OutputValue = OutputFunction | OutputPrimitive | OutputObject | OutputArray;
+
+type StringValue = string | 'true' | 'false';
 
 const isPrimitiveValue = (value: unknown): value is InputPrimitive => {
 	return isString(value) || isNumber(value) || isBoolean(value) || isNil(value);

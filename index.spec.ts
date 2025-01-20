@@ -5,8 +5,9 @@ import infer, { inferValue } from './index.js';
 describe('/index', () => {
 	describe('infer', () => {
 		it('should infer values in a simple object', () => {
-			const input = { a: 'true', b: '42', c: 'hello' };
-			const expected = { a: true, b: 42, c: 'hello' };
+			const fn = (value: unknown) => value;
+			const input = { a: 'true', b: '42', c: 'hello', d: fn };
+			const expected = { a: true, b: 42, c: 'hello', d: fn };
 
 			expect(infer(input)).toEqual(expected);
 		});
