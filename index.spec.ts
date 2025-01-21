@@ -1,6 +1,6 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import infer, { inferValue } from './index.js';
+import infer, { inferValue } from './index';
 
 describe('/index', () => {
 	describe('infer', () => {
