@@ -16,7 +16,7 @@ type InputValue = InputFunction | InputPrimitive | InputObject | InputArray;
 
 type OutputFunction = (value: any) => any;
 type OutputPrimitive = string | number | boolean | null | undefined;
-type OutputObject = { [key: string]: OutputValue };
+type OutputObject = { [key: string]: OutputValue } | Record<string, unknown>;
 type OutputArray = OutputValue[];
 type OutputValue = OutputFunction | OutputPrimitive | OutputObject | OutputArray;
 
