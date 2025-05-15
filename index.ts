@@ -70,7 +70,7 @@ const inferValue = (value: InputPrimitive): OutputPrimitive => {
 		return value === 'true';
 	}
 
-	if (typeof value === 'string') {
+	if (typeof value === 'string' && value.trim() !== '') {
 		const n = toNumber(value);
 		if (isFinite(n)) {
 			return n;

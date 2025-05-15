@@ -53,5 +53,9 @@ describe('/index', () => {
 		it('should return string for non-boolean and non-numeric values', () => {
 			expect(inferValue('hello')).toEqual('hello');
 		});
+
+		it('should return empty string for empty strings', () => {
+			expect(inferValue('')).toEqual('');
+		});
 	});
 });

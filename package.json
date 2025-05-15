@@ -22,7 +22,7 @@
 		"npm-publish": "yarn test --run && yarn build && yarn version --patch --no-git-tag-version && yarn publish --non-interactive",
 		"test": "vitest"
 	},
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"dependencies": {
 		"lodash": "^4.17.21"
 	}
