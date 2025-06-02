@@ -48,6 +48,8 @@ describe('/index', () => {
 		it('should infer numeric values', () => {
 			expect(inferValue('42')).toEqual(42);
 			expect(inferValue('3.14')).toEqual(3.14);
+			expect(inferValue('+3.14')).toEqual('+3.14');
+			expect(inferValue('-3.14')).toEqual('-3.14');
 		});
 
 		it('should return string for non-boolean and non-numeric values', () => {

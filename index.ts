@@ -6,6 +6,7 @@ import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 import map from 'lodash/map';
 import reduce from 'lodash/reduce';
+import startsWith from 'lodash/startsWith';
 import toNumber from 'lodash/toNumber';
 
 type InputFunction = (value: any) => any;
@@ -26,7 +27,7 @@ const isPrimitiveValue = (value: unknown): value is InputPrimitive => {
 	return isString(value) || isNumber(value) || isBoolean(value) || isNil(value);
 };
 
-const isStringBoolean = (value: string): value is 'true' | 'false' => {
+const isBooleanString = (value: string): value is 'true' | 'false' => {
 	return value === 'true' || value === 'false';
 };
 
@@ -62,15 +63,15 @@ const infer = <T extends OutputValue>(obj: InputValue): T => {
 };
 
 const inferValue = (value: InputPrimitive): OutputPrimitive => {
-	if (value === null || value === undefined) {
+	if (isNil(value)) {
 		return value;
 	}
 
-	if (typeof value === 'string' && isStringBoolean(value)) {
+	if (isString(value) && isBooleanString(value)) {
 		return value === 'true';
 	}
 
-	if (typeof value === 'string' && value.trim() !== '') {
+	if (isString(value) && value.trim() !== '' && !startsWith(value, '+') && !startsWith(value, '-')) {
 		const n = toNumber(value);
 		if (isFinite(n)) {
 			return n;
