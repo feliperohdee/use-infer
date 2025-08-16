@@ -2,9 +2,10 @@
 	"author": "Felipe Rohde <feliperohdee@gmail.com>",
 	"devDependencies": {
 		"@types/lodash": "^4.17.14",
+		"lodash": "^4.17.21",
 		"prettier": "^3.4.2",
 		"typescript": "^5.7.3",
-		"vitest": "^3.0.2"
+		"vitest": "^3.2.4"
 	},
 	"peerDependencies": {
 		"lodash": "^4.17.21"
